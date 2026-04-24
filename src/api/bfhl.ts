@@ -6,8 +6,11 @@ const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
 export async function postBFHL(data: string[]): Promise<BFHLResponse> {
   const body: BFHLRequest = { data };
+  
+  // Clean up any accidental trailing slashes in the env variable
+  const baseUrl = API_BASE.replace(/\/+$/, "");
 
-  const response = await fetch(`${API_BASE}/bfhl`, {
+  const response = await fetch(`${baseUrl}/bfhl`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
