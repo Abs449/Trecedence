@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import "./index.css";
 import { postBFHL } from "./api/bfhl";
 import type { BFHLResponse } from "./types/bfhl";
